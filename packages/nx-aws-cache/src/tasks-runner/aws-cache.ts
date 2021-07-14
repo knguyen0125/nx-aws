@@ -49,10 +49,6 @@ export class AwsCache implements RemoteCache {
     if (!options.awsSecretAccessKey && externalOptions === null) {
       missingOptions.push('AWS_SECRET_ACCESS_KEY | NX_AWS_SECRET_ACCESS_KEY | awsSecretAccessKey');
     }
-
-    if (missingOptions.length > 0) {
-      throw new Error(`Missing AWS options: \n\n${missingOptions.join('\n')}`);
-    }
   }
 
   public async retrieve(hash: string, cacheDirectory: string): Promise<boolean> {
